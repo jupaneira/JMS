@@ -18,7 +18,7 @@ The topics have a replication factor ( >1 ), so if a broker is down, another bro
 
 *Only ONE broker can be a leader for a given partition* = Only that leader can receive and serve data for this partition. And the other brokers will synchronize the data. 
 
-### Zookeeper
+## Zookeeper
 
 * Zookeeper manages brokers (keep a list of them)
 * Zookeeper helps in performing leader election for partitions
@@ -26,19 +26,19 @@ The topics have a replication factor ( >1 ), so if a broker is down, another bro
 * **Kafka can't work without Zookeper**
 * Zookeper works in clusters and has also a leader and followers
 
-### KafkaConsumer
+## KafkaConsumer
 
 The consumers have to specify the topic and one broker to connect, and Kafka will take care of pulling the data from the right brokers.
 The data is read in order from each partition.
 
-## Consumer Groups
+### Consumer Groups
 * Consumers read data in groups
 * Each consumer reads from exclusive partitions
 * If you have more consumer than partitions, some will be inactive
 * When a consumer has processed data received , it should be committing the offsets
 
 
-### KafkaProducer
+## KafkaProducer
 
 For producing messages to Kafka:
   1. The first is to create a ***ProducerRecord***, (includes the topic, value and we can also specify a key and partition)
