@@ -3,6 +3,22 @@ JMS and Kafka Documentation
 
 # KAFKA
 
+**Topics and Partitions**
+1. The Offset only have meaning  for a specific partition
+2. Order is guaranteed only within a pratition
+3. Data is kept for a limited time
+4. Once the data is written, it can't be modify
+
+**Broker**
+1. Each borker is identified by an ID
+2. Each broker contains specific topic partitions
+3. After connecting to any broker, you will be connected to the entire cluster
+
+The topics have a replication factor ( >1 ), so if a broker is down, another broker can serve the data.
+
+*Only ONE broker can be a leader for a given partition* = Only that leader can receive and serve data for this partition. And the other brokers will synchronize the data. 
+
+
 ### KafkaProducer
 
 For producing messages to Kafka:
