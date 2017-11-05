@@ -9,6 +9,28 @@ JMS and Kafka Documentation
 3. Data is kept for a limited time
 4. Once the data is written, it can't be modify
 
+**Segments**
+* Partitions are made of segments.
+* Segments are files where the data of the partition is store
+* Each segments store a range of offsets. The last segments is called the *Active Segment* 
+
+The segments have two properties:
+1. log.segment.bytes = max size of a single segment in bytes
+2. log.segment.ms = the time Kafka will wait before committing the segment if not full
+
+Each segment comes with two indexes:
+1. Position index 
+2. TimeStamp index
+
+**Log cleanup policies**
+When Kafka deletes the stored messages?
+
+1. Policy 1= log.cleanup.policy=delete (default for all topics)
+   Delete based on age of data (default is a week)
+   Delete based on max size of log
+2. Policy 2= log.cleanup.policy=compact
+   Delete based on the keys of the messages (keep the most recent value of a key; delete duplicated keys)
+
 **Broker**
 1. Each borker is identified by an ID
 2. Each broker contains specific topic partitions
@@ -67,6 +89,8 @@ The Producers can choose to receive acknowledge of the sent data:
   1. Acks=0. Producer won't wait for response (possible data loss)
   2. Acks=1. Producer will wait for leader acknowledgment (limited data loss)
   3. Acks=2. Producer will wait for leader + replicas acknowledgment (no data loss)
+  
+  
   
   
   
