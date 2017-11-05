@@ -27,10 +27,10 @@ Each segment comes with two indexes:
 ### Log cleanup policies
 When Kafka deletes the stored messages?
 
-1. Policy 1= log.cleanup.policy=delete (default for all topics)
-   Delete based on age of data (default is a week)
+1. Policy 1= log.cleanup.policy=delete (default for all topics)<br/>
+   Delete based on age of data (default is a week)<br/>
    Delete based on max size of log
-2. Policy 2= log.cleanup.policy=compact
+2. Policy 2= log.cleanup.policy=compact<br/>
    Delete based on the keys of the messages (keep the most recent value of a key; delete duplicated keys)
 
 ### Broker
