@@ -3,13 +3,15 @@ JMS and Kafka Documentation
 
 # KAFKA
 
-**Topics and Partitions**
+## Terminology 
+
+### Topics and Partitions
 1. The Offset only have meaning  for a specific partition
 2. Order is guaranteed only within a pratition
 3. Data is kept for a limited time
 4. Once the data is written, it can't be modify
 
-**Segments**
+### Segments
 * Partitions are made of segments.
 * Segments are files where the data of the partition is store
 * Each segments store a range of offsets. The last segments is called the *Active Segment* 
@@ -20,9 +22,9 @@ The segments have two properties:
 
 Each segment comes with two indexes:
 1. Position index 
-2. TimeStamp index
+2. TimeStamp index 
 
-**Log cleanup policies**
+### Log cleanup policies
 When Kafka deletes the stored messages?
 
 1. Policy 1= log.cleanup.policy=delete (default for all topics)
@@ -31,7 +33,7 @@ When Kafka deletes the stored messages?
 2. Policy 2= log.cleanup.policy=compact
    Delete based on the keys of the messages (keep the most recent value of a key; delete duplicated keys)
 
-**Broker**
+### Broker
 1. Each borker is identified by an ID
 2. Each broker contains specific topic partitions
 3. After connecting to any broker, you will be connected to the entire cluster
