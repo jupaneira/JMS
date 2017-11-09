@@ -92,9 +92,15 @@ The Producers can choose to receive acknowledge of the sent data:
   2. Acks=1. Producer will wait for leader acknowledgment (limited data loss)
   3. Acks=2. Producer will wait for leader + replicas acknowledgment (no data loss)
   
-  # KAFKA Connect API
+# KAFKA Connect API
   
 Kafka Connect API is a set of connectors that enable and make easy to publish data to and consume data from Kafka, supporting different dataSources and sinks (Relational Data Bases, NoSQL databases, Twitter, etc..)
+
+## Connectors
+Connectos hava three configuration parameters 
+1. Name
+2. connector.class
+3. tasks.max
   
   
   
